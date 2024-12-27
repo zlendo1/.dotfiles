@@ -1,0 +1,6 @@
+[Desktop Entry]
+Exec=/home/zijad/.scripts/rebind_caps
+Icon=application-x-shellscript
+Name=rebind_caps
+Type=Application
+X-KDE-AutostartScript=true

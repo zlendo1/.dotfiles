@@ -1,0 +1,31 @@
+[user]
+	name = zlendo1
+	email = zlendo1@etf.unsa.ba
+[alias]
+	staash = stash --all
+	st = status
+	co = checkout
+	br = branch
+[commit]
+	gpgsign = true
+[tag]
+	gpgsign = true
+[init]
+	defaultBranch = main
+[core]
+	editor = nvim
+	filemode = false
+[pull]
+	rebase = true
+[fetch]
+	prune = true
+[color]
+	ui = true
+[rerere]
+	enabled = true
+[column]
+	ui = auto
+[branch]
+	sort = -committerdate
+[include]
+  path = ~/.gitconfig.signingkey
