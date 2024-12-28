@@ -90,7 +90,7 @@ autoload -U +X compinit && compinit
 
 # Key management
 export GPG_TTY=$(tty)
-eval $(keychain --eval --quiet --quick --agents ssh,gpg id_ed25519 399A9320C64A6727)
+eval $(keychain --eval --quiet --quick --agents ssh id_ed25519)
 
 # Tmux config specific
 if [[ $TMUX ]]; then
