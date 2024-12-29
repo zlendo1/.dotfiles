@@ -1,3 +1,6 @@
+# Add ~/.local/bin to PATH
+export PATH=~/.local/scripts:$PATH
+
 # Set up fzf key bindings and fuzzy completion
 eval "$(fzf --zsh)"
 
