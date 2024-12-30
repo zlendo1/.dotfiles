@@ -14,6 +14,7 @@ alias ls='ls --color'
 alias inv='fzf -m --preview="bat --color=always --style=numbers --line-range=:500 {}" | xargs -r nvim'
 alias vi='nvim'
 alias vim='nvim'
+alias lg='lazygit'
 
 # Editor config
 EDITOR='nvim'
