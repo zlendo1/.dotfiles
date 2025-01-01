@@ -1,7 +1,7 @@
 #!/bin/bash
 
-echo "Memory Usage (MB) | Executable Path"
-echo "------------------|-------------------------"
+echo "Memory Usage (%) | Executable Path"
+echo "-----------------|-------------------------"
 
 ps aux --sort=-%mem | awk '
 NR > 1 { 
@@ -11,6 +11,6 @@ NR > 1 {
 END {
     # Output the aggregated memory usage
     for (cmd in mem) {
-        printf "%-17.2f | %s\n", mem[cmd], cmd
+        printf "%-16.2f | %s\n", mem[cmd], cmd
     }
-}' | sort -nr | head -n 10
+}' | sort -nr | head -n 20
