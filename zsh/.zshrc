@@ -15,6 +15,7 @@ alias inv='fzf -m --preview="bat --color=always --style=numbers --line-range=:50
 alias vi='nvim'
 alias vim='nvim'
 alias lg='lazygit'
+alias sioyek='sioyek --new-window'
 
 # Editor config
 EDITOR='nvim'
