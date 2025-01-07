@@ -9,6 +9,7 @@ local options = {
     tex = { "latexindent" },
     bib = { "bibtex-tidy" },
     rust = { "rustfmt" },
+    python = { "ruff_fix", "ruff_format", "ruff_organize_imports" },
   },
 
   format_on_save = {
