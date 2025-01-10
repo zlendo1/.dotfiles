@@ -20,10 +20,10 @@ local options = {
 
   formatters = {
     latexindent = {
-      command = "latexindent",
+      command = "/usr/bin/latexindent",
       stdin = true,
       append_args = function()
-        return { "-m", "-l" }
+        return { "-m", "-l", "-wd", "-kv" }
       end,
     },
   },
