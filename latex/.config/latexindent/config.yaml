@@ -129,7 +129,7 @@ fileContentsEnvironments:
   filecontents*: 1
 
 # indent preamble
-indentPreamble: 0
+indentPreamble: 1
 
 # assume no preamble in cls, sty, by default
 lookForPreamble:
@@ -326,6 +326,7 @@ noAdditionalIndent:
   comment: 1
   document: 1
   frame: 0
+  abstract: 1
 
 # if you have indent rules for particular code blocks
 # then you can populate them in indentRules; for example, you might just want
@@ -532,7 +533,7 @@ modifyLineBreaks:
     columns: 100
     multipleSpacesToSingle: 1
     removeBlockLineBreaks: 1
-    when: before                        # before/after
+    when: after                        # before/after
     comments:
       wrap: 0                           # 0/1
       inheritLeadingSpace: 0            # 0/1
@@ -543,7 +544,13 @@ modifyLineBreaks:
       blankLine: 1                      # 0/1
       verbatim: 1                       # 0/1
       filecontents: 1                   # 0/1
-      other: \\\]|\\item(?:\h|\[)       # regex
+      other: |-
+        (?x)
+          \\\]
+          |
+          \\item(?:\h|\[)
+          |
+          \\caption\h*(?:\[\])?\h*\{
     blocksBeginWith:
       A-Z: 1                            # 0/1
       a-z: 1                            # 0/1
