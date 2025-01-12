@@ -29,3 +29,11 @@
 	sort = -committerdate
 [include]
   path = ~/.gitconfig.signingkey
+[diff]
+  tool = nvimdiff
+[difftool]
+  prompt = false
+[merge]
+  tool = nvimdiff
+[mergetool]
+  prompt = true
