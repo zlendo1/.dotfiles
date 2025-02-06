@@ -108,4 +108,5 @@ fi
 # tmux-sessionizer binding
 # bindkey -s ^f "tmux-sessionizer\n"
 
-# Created by `pipx` on 2025-02-02 16:05:25
+# kflash configuration flash
+export QMK_CONF_PATH=~/Projects/dactyl-cc/qmk/handwired_dactyl_cc_colemak_mod_dh_programmer.json

@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+if [ -z "${QMK_CONF_PATH}" ]; then
+  echo "QMK_CONF_PATH envar is not set!"
+else
+  qmk flash -c $QMK_CONF_PATH
+fi
