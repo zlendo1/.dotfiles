@@ -530,7 +530,7 @@ modifyLineBreaks:
     sentencesDoNOTcontain:
       other: \\begin                    # regex
   textWrapOptions:
-    columns: 100
+    columns: 80
     multipleSpacesToSingle: 1
     removeBlockLineBreaks: 1
     when: after                        # before/after
