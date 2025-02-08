@@ -56,3 +56,9 @@ end, { desc = "git diff with last commit" })
 map("n", "<leader>gf", function()
   require("telescope").extensions.git_diffs.diff_commits { use_gitsigns = true }
 end, { desc = "telescope commit to diff" })
+
+-- Markdown
+local rendermarkdown = require "render-markdown"
+
+map("n", "<leader>mt", rendermarkdown.buf_toggle, { desc = "toggle markdown in buffer" })
+map("n", "<leader>mT", rendermarkdown.toggle, { desc = "toggle markdown everywhere" })

@@ -9,6 +9,7 @@ options.sources = {
   { name = "nvim_lua" },
   { name = "path" },
   { name = "vimtex" },
+  { name = "render-markdown" },
 }
 
 options.preselect = "none"
