@@ -921,7 +921,7 @@ set ssl_ca_certificates_file="/etc/ssl/certs/ca-certificates.crt"
 # unread messages.
 # 
 # 
-# set color_directcolor=no
+set color_directcolor=yes
 #
 # Name: color_directcolor
 # Type: boolean
@@ -5201,7 +5201,7 @@ set ssl_ca_certificates_file="/etc/ssl/certs/ca-certificates.crt"
 # If set, all folders are opened in read-only mode.
 # 
 # 
-# set real_name=""
+set real_name="Zijad Lendo"
 #
 # Name: real_name
 # Type: string
