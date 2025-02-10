@@ -33,9 +33,9 @@ macro pager y "<exit><change-folder>?" "show incoming mailboxes list"
 bind browser y exit
 
 # Handler for gzip compressed mailboxes
-# open-hook   '\.gz$' "gzip --stdout --decompress '%f' >  '%t'"
-# close-hook  '\.gz$' "gzip --stdout              '%t' >  '%f'"
-# append-hook '\.gz$' "gzip --stdout              '%t' >> '%f'"
+open-hook   '\.gz$' "gzip --stdout --decompress '%f' >  '%t'"
+close-hook  '\.gz$' "gzip --stdout              '%t' >  '%f'"
+append-hook '\.gz$' "gzip --stdout              '%t' >> '%f'"
 
 bind editor <delete> delete-char
 
@@ -106,7 +106,7 @@ set ssl_ca_certificates_file="/etc/ssl/certs/ca-certificates.crt"
 ##
 
 
-# set abort_backspace=yes
+set abort_backspace=no
 #
 # Name: abort_backspace
 # Type: boolean
@@ -117,7 +117,7 @@ set ssl_ca_certificates_file="/etc/ssl/certs/ca-certificates.crt"
 # prompt.
 # 
 # 
-# set abort_key="007"
+set abort_key="<Esc>"
 #
 # Name: abort_key
 # Type: string
