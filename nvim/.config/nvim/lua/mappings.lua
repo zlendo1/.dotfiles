@@ -60,5 +60,5 @@ end, { desc = "telescope commit to diff" })
 -- Markdown
 local rendermarkdown = require "render-markdown"
 
-map("n", "<leader>mt", rendermarkdown.buf_toggle, { desc = "toggle markdown in buffer" })
-map("n", "<leader>mT", rendermarkdown.toggle, { desc = "toggle markdown everywhere" })
+map("n", "<leader>mt", rendermarkdown.toggle, { desc = "toggle markdown preview in editor" })
+map("n", "<leader>mT", ":MarkdownPreviewToggle<CR>", { desc = "toggle markdown preview in browser" })
