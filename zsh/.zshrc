@@ -15,8 +15,7 @@ alias inv='fzf -m --preview="bat --color=always --style=numbers --line-range=:50
 alias vi='nvim'
 alias vim='nvim'
 alias lg='lazygit'
-alias neomutt='ESCDELAY=5 neomutt'
-alias mutt='ESCDELAY=5 neomutt'
+alias sudoedit='EDITOR=nvim sudoedit'
 
 # Editor config
 EDITOR='nvim'
