@@ -10,6 +10,7 @@ local options = {
     bib = { "bibtex-tidy" },
     rust = { "rustfmt" },
     python = { "ruff_fix", "ruff_format", "ruff_organize_imports" },
+    markdown = { "mdformat", "mdsf" },
   },
 
   format_on_save = {
