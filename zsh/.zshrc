@@ -110,4 +110,4 @@ fi
 # bindkey -s ^f "tmux-sessionizer\n"
 
 # kflash configuration flash
-export QMK_CONF_PATH=~/Projects/dactyl-cc/qmk/handwired_dactyl_cc_colemak_mod_dh_programmer.json
+export QMK_CONF_PATH=~/Projects/dactyl-cc/qmk/handwired_dactyl_cc_programmer.json
