@@ -16,6 +16,7 @@ alias vi='nvim'
 alias vim='nvim'
 alias lg='lazygit'
 alias sudoedit='EDITOR=nvim sudoedit'
+alias snvim='EDITOR=nvim sudoedit'
 
 # Editor config
 EDITOR='nvim'
