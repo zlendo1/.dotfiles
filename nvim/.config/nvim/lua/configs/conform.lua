@@ -4,6 +4,7 @@ local options = {
     css = { "prettier" },
     html = { "prettier" },
     javascript = { "prettier" },
+    pug = { "prettier" },
     c = { "clang-format" },
     cpp = { "clang-format" },
     tex = { "latexindent" },
