@@ -40,6 +40,8 @@ return {
         "toml",
         "vue",
         "yaml",
+        "pug",
+        "java",
       },
     },
   },
