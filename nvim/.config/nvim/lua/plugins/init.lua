@@ -5,6 +5,13 @@ return {
     opts = require "configs.conform",
   },
 
+  {
+    "nvim-java/nvim-java",
+    config = function()
+      require("java").setup()
+    end,
+  },
+
   -- These are some examples, uncomment them if you want to see them work!
   {
     "neovim/nvim-lspconfig",
@@ -118,6 +125,7 @@ return {
     ---@type render.md.UserConfig
     opts = {},
   },
+
   {
     "iamcco/markdown-preview.nvim",
     cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },

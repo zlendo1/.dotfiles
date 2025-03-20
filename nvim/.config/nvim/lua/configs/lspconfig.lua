@@ -9,7 +9,7 @@ local servers = {
   "cssls",
   "ts_ls",
   "clangd",
-  "java_language_server",
+  "jdtls",
   "tailwindcss",
   "jsonls",
   "docker_compose_language_service",
