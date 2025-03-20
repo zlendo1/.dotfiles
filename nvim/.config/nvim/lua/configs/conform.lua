@@ -12,6 +12,7 @@ local options = {
     rust = { "rustfmt" },
     python = { "ruff_fix", "ruff_format", "ruff_organize_imports" },
     markdown = { "mdformat", "injected" },
+    java = { "google-java-format" },
   },
 
   format_on_save = {
