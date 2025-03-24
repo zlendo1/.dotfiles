@@ -5,17 +5,14 @@ return {
     opts = require "configs.conform",
   },
 
-  {
-    "nvim-java/nvim-java",
-    config = function()
-      require("java").setup()
-    end,
-  },
-
   -- These are some examples, uncomment them if you want to see them work!
   {
     "neovim/nvim-lspconfig",
+    dependencies = {
+      "nvim-java/nvim-java",
+    },
     config = function()
+      require("java").setup()
       require "configs.lspconfig"
     end,
   },
