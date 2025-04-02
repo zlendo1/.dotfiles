@@ -1,0 +1,26 @@
+#!/bin/bash
+
+sed -E "s|$HOME|~|" $1 | awk -F '/' '{
+  if (length($0) > 30 && NF > 2) {
+    left = $1; right = $NF; middle = "...";
+    left_idx = 2; right_idx = NF - 1;
+    
+    while (left_idx <= right_idx) {
+      temp1 = left "/" $left_idx "/" middle "/" right;
+      if (length(temp1) > 30) break;
+      left = left "/" $left_idx;
+      left_idx++;
+
+      if (left_idx > right_idx) break;
+
+      temp2 = left "/" middle "/" $right_idx "/" right;
+      if (length(temp2) > 30) break;
+      right = $right_idx "/" right;
+      right_idx--;
+    }
+    
+    print left "/" middle "/" right;
+  } else {
+    print $0;
+  }
+}'
