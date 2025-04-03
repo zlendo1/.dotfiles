@@ -13,6 +13,8 @@ local options = {
     python = { "ruff_fix", "ruff_format", "ruff_organize_imports" },
     markdown = { "mdformat", "injected" },
     java = { "google-java-format" },
+    xml = { "xmlformatter" },
+    bash = { "beautysh" },
   },
 
   format_on_save = {
