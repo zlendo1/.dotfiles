@@ -97,9 +97,9 @@ autoload -U +X compinit && compinit
 # Key management
 export GPG_TTY=$(tty)
 if [[ "$(cat /etc/hostname)" == "pc-home" ]]; then
-  eval $(keychain --eval --quiet --quick --agents ssh,gpg id_ed25519 399A9320C64A6727)
+  eval $(keychain --eval --quiet --quick --ssh-allow-gpg id_ed25519 399A9320C64A6727)
 else
-  eval $(keychain --eval --quiet --quick --agents ssh,gpg id_ed25519 595CE7A6A128024A)
+  eval $(keychain --eval --quiet --quick --ssh-allow-gpg id_ed25519 595CE7A6A128024A)
 fi
 
 # Tmux config specific
