@@ -12,7 +12,8 @@ return {
       "nvim-java/nvim-java",
     },
     config = function()
-      require("java").setup()
+      -- disabled until nvim-java is compatible with Mason 2.0
+      -- require("java").setup()
       require "configs.lspconfig"
     end,
   },
