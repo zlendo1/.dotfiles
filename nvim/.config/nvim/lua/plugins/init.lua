@@ -31,8 +31,6 @@ return {
         "css",
         "markdown",
         "markdown_inline",
-        "latex",
-        "c",
         "cpp",
         "cuda",
         "git_config",
