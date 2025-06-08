@@ -5,7 +5,6 @@ return {
     opts = require "configs.conform",
   },
 
-  -- These are some examples, uncomment them if you want to see them work!
   {
     "neovim/nvim-lspconfig",
     dependencies = {
@@ -133,5 +132,51 @@ return {
       vim.g.mkdp_browser = "firefox"
     end,
     ft = { "markdown" },
+  },
+
+  {
+    "zbirenbaum/copilot-cmp",
+    dependencies = {
+      {
+        "zbirenbaum/copilot.lua",
+        cmd = "Copilot",
+        events = "InsertEnter",
+        config = function()
+          require("copilot").setup {
+            suggestion = { enabled = false },
+            panel = { enabled = false },
+          }
+        end,
+      },
+    },
+    opts = {},
+    config = function(_, opts)
+      local copilot_cmp = require "copilot_cmp"
+      copilot_cmp.setup(opts)
+      vim.lsp.on_attach(function()
+        copilot_cmp._on_insert_enter {}
+      end, "copilot")
+    end,
+  },
+
+  {
+    "CopilotC-Nvim/CopilotChat.nvim",
+    dependencies = {
+      { "zbirenbaum/copilot.lua" },
+      { "nvim-lua/plenary.nvim", branch = "master" },
+    },
+    build = "make tiktoken",
+    opts = {
+      -- See Configuration section for options
+    },
+    keys = {
+      { "<leader>zc", ":CopilotChat<CR>", mode = "n", desc = "open copilot chat" },
+      { "<leader>ze", ":CopilotChatExplain<CR>", mode = "v", desc = "explain code" },
+      { "<leader>zr", ":CopilotChatReview<CR>", mode = "v", desc = "review code" },
+      { "<leader>zf", ":CopilotChatFix<CR>", mode = "v", desc = "fix code issues" },
+      { "<leader>zo", ":CopilotChatOptimize<CR>", mode = "v", desc = "optimize code" },
+      { "<leader>zd", ":CopilotChatDocs<CR>", mode = "v", desc = "generate docs" },
+      { "<leader>zt", ":CopilotChatTests<CR>", mode = "v", desc = "generate tests" },
+    },
   },
 }

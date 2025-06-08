@@ -10,6 +10,7 @@ options.sources = {
   { name = "path" },
   { name = "vimtex" },
   { name = "render-markdown" },
+  { name = "copilot" },
 }
 
 options.preselect = "none"
