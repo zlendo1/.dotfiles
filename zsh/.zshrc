@@ -96,10 +96,11 @@ autoload -U +X compinit && compinit
 
 # Key management
 export GPG_TTY=$(tty)
-if [[ "$(cat /etc/hostname)" == "home-pc" ]]; then
-  eval $(keychain --eval --quiet --quick id_ed25519 399A9320C64A6727)
+if [[ -f ~/.gpg_key_id ]]; then
+  GPG_KEY_ID=$(<~/.gpg_key_id)
+  eval "$(keychain --eval --quiet --quick id_ed25519 $GPG_KEY_ID)"
 else
-  eval $(keychain --eval --quiet --quick id_ed25519 595CE7A6A128024A)
+  eval "$(keychain --eval --quiet --quick id_ed25519)"
 fi
 
 # Tmux config specific
