@@ -9,9 +9,6 @@ return {
     "neovim/nvim-lspconfig",
     dependencies = {
       "nvim-java/nvim-java",
-      -- pinned until nvim-java is compatible with Mason 2.0
-      { "mason-org/mason.nvim", version = "^1.0.0" },
-      { "mason-org/mason-lspconfig.nvim", version = "^1.0.0" },
     },
     config = function()
       require("java").setup()
