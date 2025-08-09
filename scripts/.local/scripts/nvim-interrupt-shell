@@ -1,0 +1,19 @@
+#!/bin/bash
+
+pane_pid=$(tmux display-message -p "#{pane_pid}")
+current_cmd=$(tmux display-message -p '#{pane_current_command}')
+
+if [ "$current_cmd" = "nvim" ]; then
+    exit 0
+fi
+
+if [[ "$current_cmd" =~ ^(sh|bash|zsh|fish)$ ]]; then
+    tmux send-keys "nvim" C-m
+else
+    tmux send-keys C-z
+
+    sleep 0.2
+
+    tmux send-keys "nvim; fg" C-m
+fi
+

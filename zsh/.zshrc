@@ -108,9 +108,6 @@ if [[ $TMUX ]]; then
   alias clear='clear && tmux clear-history'
 fi
 
-# tmux-sessionizer binding
-# bindkey -s ^f "tmux-sessionizer\n"
-
 # kflash configuration flash
 export QMK_CONF_PATH=~/Projects/dactyl-cc/qmk/handwired_dactyl_cc_programmer.json
 
