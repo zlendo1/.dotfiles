@@ -17,7 +17,7 @@ local servers = {
   "kotlin_language_server",
   "lua_ls",
   "openscad_lsp",
-  "pylsp",
+  "basedpyright",
   "rust_analyzer",
 }
 local nvlsp = require "nvchad.configs.lspconfig"
