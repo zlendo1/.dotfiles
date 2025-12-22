@@ -98,9 +98,9 @@ autoload -U +X compinit && compinit
 export GPG_TTY=$(tty)
 if [[ -f ~/.gpg_key_id ]]; then
   GPG_KEY_ID=$(<~/.gpg_key_id)
-  eval "$(keychain --eval --quiet --quick id_ed25519 $GPG_KEY_ID)"
+  eval "$(keychain --eval --quiet id_ed25519 $GPG_KEY_ID)"
 else
-  eval "$(keychain --eval --quiet --quick id_ed25519)"
+  eval "$(keychain --eval --quiet id_ed25519)"
 fi
 
 # Tmux config specific
