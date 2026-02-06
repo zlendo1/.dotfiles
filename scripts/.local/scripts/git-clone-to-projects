@@ -2,16 +2,60 @@
 
 set -euo pipefail
 
+PROJECTS_DIR="$HOME/Projects"
+CREATE_PARENT=false
+
+show_help() {
+  cat <<EOF
+Usage: $(basename "$0") [OPTIONS] <git-repo-url>
+
+Clone a git repository into ~/Projects/, using the repository's
+default directory name.
+
+Options:
+  -p, --parent  Create ~/Projects if it does not exist
+  -h, --help    Show this help message
+EOF
+}
+
+# Parse flags
+while [[ $# -gt 0 ]]; do
+  case "$1" in
+    -h|--help)
+      show_help
+      exit 0
+      ;;
+    -p|--parent)
+      CREATE_PARENT=true
+      shift
+      ;;
+    -*)
+      echo "Unknown option: $1"
+      show_help
+      exit 1
+      ;;
+    *)
+      break
+      ;;
+  esac
+done
+
 URL="${1:-}"
 
 if [[ -z "$URL" ]]; then
-  echo "Usage: $(basename "$0") <git-repo-url>"
+  show_help
   exit 1
 fi
 
-PROJECTS_DIR="$HOME/Projects"
+if [[ ! -d "$PROJECTS_DIR" ]]; then
+  if [[ "$CREATE_PARENT" == true ]]; then
+    mkdir -p "$PROJECTS_DIR"
+  else
+    echo "Error: $PROJECTS_DIR does not exist."
+    echo "Use -p or --parent to create it."
+    exit 1
+  fi
+fi
 
-mkdir -p "$PROJECTS_DIR"
 cd "$PROJECTS_DIR"
-
 git clone "$URL"

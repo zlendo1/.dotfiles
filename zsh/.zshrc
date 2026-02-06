@@ -10,13 +10,13 @@ eval "$(batman --export-env)"
 # Aliases
 alias grep='grep --color=auto'
 alias ls='ls --color'
-#alias inv='nvim $(fzf -m --preview="bat --color=always --style=numbers --line-range=:500 {}")'
 alias inv='fzf -m --preview="bat --color=always --style=numbers --line-range=:500 {}" | xargs -r nvim'
 alias vi='nvim'
 alias vim='nvim'
 alias lg='lazygit'
 alias ldo='lazydocker'
 alias oc='opencode'
+alias ctp='git-clone-to-projects'
 alias sudoedit='EDITOR=nvim sudoedit'
 alias snvim='EDITOR=nvim sudoedit'
 
