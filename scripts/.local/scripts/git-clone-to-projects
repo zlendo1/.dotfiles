@@ -1,0 +1,17 @@
+#!/bin/bash
+
+set -euo pipefail
+
+URL="${1:-}"
+
+if [[ -z "$URL" ]]; then
+  echo "Usage: $(basename "$0") <git-repo-url>"
+  exit 1
+fi
+
+PROJECTS_DIR="$HOME/Projects"
+
+mkdir -p "$PROJECTS_DIR"
+cd "$PROJECTS_DIR"
+
+git clone "$URL"
