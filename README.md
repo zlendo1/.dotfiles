@@ -54,7 +54,7 @@ Copy or symlink each config directory to its Windows location:
 Open VSCode and install:
 
 - `asvetliakov.vscode-neovim` — embeds real Neovim inside VSCode
-- `stevearc.Doom-One` — Doom One colour theme
+- `l-nafaryus.doom-one-theme` — Doom One colour theme
 - `eamodio.gitlens` — GitLens
 
 ### 4. One-time PowerShell setup
