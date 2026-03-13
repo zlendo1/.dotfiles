@@ -152,8 +152,8 @@
     }
   },
   "plugin": [
-    "oh-my-opencode@latest",
-    "opencode-antigravity-auth@1.4.3"
+    "oh-my-opencode",
+    "opencode-antigravity-auth@1.6.0"
   ],
   "formatter": {
     "ruff": {
