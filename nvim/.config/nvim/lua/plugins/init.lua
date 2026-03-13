@@ -40,7 +40,6 @@ return {
         "python",
         "regex",
         "sql",
-        "tmux",
         "toml",
         "vue",
         "yaml",
@@ -52,19 +51,14 @@ return {
 
   {
     "hrsh7th/nvim-cmp",
-    dependencies = {
-      "micangl/cmp-vimtex",
-    },
     opts = require "configs.cmp",
   },
 
   {
     "nvim-telescope/telescope.nvim",
     dependencies = {
-      { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
       { "2kabhishek/nerdy.nvim" },
       { "ProfessorMinius/telescope-git-diff-gitsigns.nvim" },
-      { "nvim-telescope/telescope-bibtex.nvim" },
     },
     opts = require "configs.telescope",
   },
@@ -72,33 +66,6 @@ return {
   {
     "folke/which-key.nvim",
     lazy = false,
-  },
-
-  {
-    "lervag/vimtex",
-    lazy = false, -- we don't want to lazy load VimTeX
-    init = function()
-      vim.g.vimtex_view_method = "zathura"
-      vim.g.vimtex_mappings_prefix = "<space>l"
-    end,
-  },
-
-  {
-    "christoomey/vim-tmux-navigator",
-    cmd = {
-      "TmuxNavigateLeft",
-      "TmuxNavigateDown",
-      "TmuxNavigateUp",
-      "TmuxNavigateRight",
-      "TmuxNavigatePrevious",
-    },
-    keys = {
-      { "<c-h>", "<cmd><C-U>TmuxNavigateLeft<cr>" },
-      { "<c-j>", "<cmd><C-U>TmuxNavigateDown<cr>" },
-      { "<c-k>", "<cmd><C-U>TmuxNavigateUp<cr>" },
-      { "<c-l>", "<cmd><C-U>TmuxNavigateRight<cr>" },
-      { "<c-\\>", "<cmd><C-U>TmuxNavigatePrevious<cr>" },
-    },
   },
 
   {
@@ -129,7 +96,7 @@ return {
     build = "cd app && yarn install",
     init = function()
       vim.g.mkdp_filetypes = { "markdown" }
-      vim.g.mkdp_browser = "firefox"
+      vim.g.mkdp_browser = ""
     end,
     ft = { "markdown" },
   },
@@ -165,7 +132,6 @@ return {
       { "zbirenbaum/copilot.lua" },
       { "nvim-lua/plenary.nvim", branch = "master" },
     },
-    build = "make tiktoken",
     opts = {
       -- See Configuration section for options
     },
