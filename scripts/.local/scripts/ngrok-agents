@@ -1,3 +1,0 @@
-#!/usr/bin/zsh
-
-ngrok start --all
