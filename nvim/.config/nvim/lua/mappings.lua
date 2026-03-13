@@ -62,3 +62,12 @@ local rendermarkdown = require "render-markdown"
 
 map("n", "<leader>mt", rendermarkdown.toggle, { desc = "toggle markdown preview in editor" })
 map("n", "<leader>mT", ":MarkdownPreviewToggle<CR>", { desc = "toggle markdown preview in browser" })
+
+-- VSCode split navigation (replaces vim-tmux-navigator when running inside vscode-neovim)
+if vim.g.vscode then
+  local vsc = require "vscode"
+  map("n", "<C-h>", function() vsc.action "workbench.action.navigateLeft" end, { desc = "move to left split" })
+  map("n", "<C-j>", function() vsc.action "workbench.action.navigateDown" end, { desc = "move to split below" })
+  map("n", "<C-k>", function() vsc.action "workbench.action.navigateUp" end, { desc = "move to split above" })
+  map("n", "<C-l>", function() vsc.action "workbench.action.navigateRight" end, { desc = "move to right split" })
+end
