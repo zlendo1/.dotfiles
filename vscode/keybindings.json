@@ -1,0 +1,64 @@
+[
+  {
+    "key": "ctrl+h",
+    "command": "workbench.action.navigateLeft",
+    "when": "!editorTextFocus"
+  },
+  {
+    "key": "ctrl+l",
+    "command": "workbench.action.navigateRight",
+    "when": "!editorTextFocus"
+  },
+  {
+    "key": "ctrl+k",
+    "command": "workbench.action.navigateUp",
+    "when": "!editorTextFocus"
+  },
+  {
+    "key": "ctrl+j",
+    "command": "workbench.action.navigateDown",
+    "when": "!editorTextFocus"
+  },
+  {
+    "key": "ctrl+h",
+    "command": "workbench.action.terminal.focusPreviousPane",
+    "when": "terminalFocus"
+  },
+  {
+    "key": "ctrl+l",
+    "command": "workbench.action.terminal.focusNextPane",
+    "when": "terminalFocus"
+  },
+  {
+    "key": "ctrl+e oem_7",
+    "command": "workbench.action.splitEditorDown"
+  },
+  {
+    "key": "ctrl+e shift+5",
+    "command": "workbench.action.splitEditor"
+  },
+  {
+    "key": "ctrl+e c",
+    "command": "workbench.action.newGroupBelow"
+  },
+  {
+    "key": "ctrl+e shift+c",
+    "command": "workbench.action.newWindow"
+  },
+  {
+    "key": "ctrl+e shift+,",
+    "command": "workbench.action.moveEditorLeftInGroup"
+  },
+  {
+    "key": "ctrl+e shift+.",
+    "command": "workbench.action.moveEditorRightInGroup"
+  },
+  {
+    "key": "ctrl+e f",
+    "command": "workbench.action.openRecent"
+  },
+  {
+    "key": "ctrl+e g",
+    "command": "workbench.action.terminal.new"
+  }
+]

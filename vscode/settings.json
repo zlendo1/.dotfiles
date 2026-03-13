@@ -1,0 +1,23 @@
+{
+  "vscode-neovim.neovimExecutablePaths.win32": "${env:USERPROFILE}\\tools\\nvim\\bin\\nvim.exe",
+  "editor.lineNumbers": "relative",
+  "editor.cursorSurroundingLines": 10,
+  "editor.fontFamily": "'JetBrainsMonoNL Nerd Font', 'Courier New', monospace",
+  "editor.fontSize": 14,
+  "editor.formatOnSave": true,
+  "editor.minimap.enabled": false,
+  "editor.smoothScrolling": true,
+  "editor.acceptSuggestionOnEnter": "off",
+  "workbench.colorTheme": "Doom One",
+  "workbench.sideBar.location": "right",
+  "workbench.list.smoothScrolling": true,
+  "breadcrumbs.enabled": false,
+  "terminal.integrated.fontFamily": "'JetBrainsMonoNL Nerd Font'",
+  "terminal.integrated.defaultProfile.windows": "PowerShell 7 Portable",
+  "terminal.integrated.profiles.windows": {
+    "PowerShell 7 Portable": {
+      "path": "${env:USERPROFILE}\\tools\\pwsh\\pwsh.exe",
+      "icon": "terminal-powershell"
+    }
+  }
+}

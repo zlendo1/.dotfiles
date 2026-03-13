@@ -1,0 +1,79 @@
+{
+  "$help": "https://aka.ms/terminal-documentation",
+  "$schema": "https://aka.ms/terminal-profiles-schema",
+  "defaultProfile": "{powershell7-portable}",
+  "copyOnSelect": false,
+  "copyFormatting": "none",
+  "profiles": {
+    "defaults": {
+      "font": {
+        "face": "JetBrainsMonoNL Nerd Font",
+        "size": 12
+      },
+      "colorScheme": "Doom One",
+      "cursorShape": "bar",
+      "scrollbarState": "hidden",
+      "padding": "8"
+    },
+    "list": [
+      {
+        "guid": "{powershell7-portable}",
+        "name": "PowerShell 7",
+        "commandline": "%USERPROFILE%\\tools\\pwsh\\pwsh.exe",
+        "icon": "ms-appx:///ProfileIcons/{61c54bbd-c2c6-5271-96e7-009a87ff44bf}.png",
+        "startingDirectory": "%USERPROFILE%"
+      }
+    ]
+  },
+  "schemes": [
+    {
+      "name": "Doom One",
+      "foreground": "#bbc2cf",
+      "background": "#282c34",
+      "selectionBackground": "#3f444a",
+      "cursorColor": "#bbc2cf",
+      "black": "#2a2e38",
+      "brightBlack": "#3f444a",
+      "red": "#ff6c6b",
+      "brightRed": "#ff6655",
+      "green": "#98be65",
+      "brightGreen": "#99bb66",
+      "yellow": "#ECBE7B",
+      "brightYellow": "#ECBE7B",
+      "blue": "#51afef",
+      "brightBlue": "#51afef",
+      "purple": "#c678dd",
+      "brightPurple": "#c678dd",
+      "cyan": "#46D9FF",
+      "brightCyan": "#46D9FF",
+      "white": "#DFDFDF",
+      "brightWhite": "#bbc2cf"
+    }
+  ],
+  "actions": [
+    {
+      "command": { "action": "scrollDown", "rowsToScroll": 1 },
+      "keys": "ctrl+shift+j"
+    },
+    {
+      "command": { "action": "scrollUp", "rowsToScroll": 1 },
+      "keys": "ctrl+shift+k"
+    },
+    {
+      "command": "scrollDownPage",
+      "keys": "ctrl+shift+page_down"
+    },
+    {
+      "command": "scrollUpPage",
+      "keys": "ctrl+shift+page_up"
+    },
+    {
+      "command": "copy",
+      "keys": "ctrl+shift+c"
+    },
+    {
+      "command": "paste",
+      "keys": "ctrl+shift+v"
+    }
+  ]
+}
