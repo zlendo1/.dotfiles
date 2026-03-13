@@ -1,3 +1,5 @@
+if vim.g.vscode then return end
+
 require("nvchad.configs.lspconfig").defaults()
 
 local servers = {
@@ -12,7 +14,6 @@ local servers = {
   "dockerls",
   "kotlin_language_server",
   "lua_ls",
-  "openscad_lsp",
   "basedpyright",
   "rust_analyzer",
 }
