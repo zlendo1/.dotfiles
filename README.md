@@ -55,8 +55,6 @@ Open VSCode and install:
 
 - `asvetliakov.vscode-neovim` — embeds real Neovim inside VSCode
 - `stevearc.Doom-One` — Doom One colour theme
-- `GitHub.copilot` — GitHub Copilot
-- `GitHub.copilot-chat` — Copilot Chat
 - `eamodio.gitlens` — GitLens
 
 ### 4. One-time PowerShell setup
