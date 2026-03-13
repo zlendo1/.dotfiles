@@ -5,6 +5,7 @@ $env:PATH = "$env:USERPROFILE\tools\nvim\bin;" +
             "$env:USERPROFILE\tools\lazygit;" +
             "$env:USERPROFILE\tools\lazydocker;" +
             "$env:USERPROFILE\tools\oh-my-posh;" +
+            "$env:USERPROFILE\tools\wezterm;" +
             $env:PATH
 
 # Editor

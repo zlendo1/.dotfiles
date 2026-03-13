@@ -12,7 +12,7 @@ WSL2, no admin required).
 - ohmyposh
 - powershell
 - vscode
-- windowsterminal
+- wezterm
 
 ## Windows Setup Guide
 
@@ -35,16 +35,16 @@ lives under `%USERPROFILE%\tools\`.
 
 Copy or symlink each config directory to its Windows location:
 
-| Config          | Source (this repo)                            | Windows destination                                                                        |
-| --------------- | --------------------------------------------- | ------------------------------------------------------------------------------------------ |
-| nvim            | `nvim/.config/nvim/`                          | `%LOCALAPPDATA%\nvim\`                                                                     |
-| ohmyposh        | `ohmyposh/.config/ohmyposh/`                  | `%USERPROFILE%\.config\ohmyposh\`                                                          |
-| powershell      | `powershell/Microsoft.PowerShell_profile.ps1` | `%USERPROFILE%\Documents\PowerShell\Microsoft.PowerShell_profile.ps1`                      |
-| vscode          | `vscode/settings.json`                        | `%APPDATA%\Code\User\settings.json`                                                        |
-| vscode          | `vscode/keybindings.json`                     | `%APPDATA%\Code\User\keybindings.json`                                                     |
-| windowsterminal | `windowsterminal/settings.json`               | `%LOCALAPPDATA%\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\settings.json` |
-| lazygit         | `lazygit/.config/lazygit/config.yml`          | `%APPDATA%\lazygit\config.yml`                                                             |
-| lazydocker      | `lazydocker/.config/lazydocker/config.yml`    | `%APPDATA%\lazydocker\config.yml`                                                          |
+| Config     | Source (this repo)                            | Windows destination                                                   |
+| ---------- | --------------------------------------------- | --------------------------------------------------------------------- |
+| nvim       | `nvim/.config/nvim/`                          | `%LOCALAPPDATA%\nvim\`                                                |
+| ohmyposh   | `ohmyposh/.config/ohmyposh/`                  | `%USERPROFILE%\.config\ohmyposh\`                                     |
+| powershell | `powershell/Microsoft.PowerShell_profile.ps1` | `%USERPROFILE%\Documents\PowerShell\Microsoft.PowerShell_profile.ps1` |
+| vscode     | `vscode/settings.json`                        | `%APPDATA%\Code\User\settings.json`                                   |
+| vscode     | `vscode/keybindings.json`                     | `%APPDATA%\Code\User\keybindings.json`                                |
+| wezterm    | `wezterm/.wezterm.lua`                        | `%USERPROFILE%\.wezterm.lua`                                          |
+| lazygit    | `lazygit/.config/lazygit/config.yml`          | `%APPDATA%\lazygit\config.yml`                                        |
+| lazydocker | `lazydocker/.config/lazydocker/config.yml`    | `%APPDATA%\lazydocker\config.yml`                                     |
 
 > **Tip:** Use PowerShell `New-Item -ItemType SymbolicLink` to create symlinks
 > instead of copying, so changes in the repo are picked up automatically.
@@ -79,5 +79,5 @@ ______________________________________________________________________
 ### nvim
 
 - [JetBrainsMonoNL Nerd Font](https://www.nerdfonts.com/font-downloads) (also
-  needed by Windows Terminal and VSCode)
+  needed by WezTerm and VSCode)
 - Neovim ≥ 0.10
