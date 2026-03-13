@@ -27,9 +27,7 @@ function inv {
 # PSReadLine — vi mode, history, suggestions
 Set-PSReadLineOption -EditMode Vi
 Set-PSReadLineOption -MaximumHistoryCount 10000
-Set-PSReadLineOption -HistoryNoDuplicates $true
 Set-PSReadLineOption -PredictionSource History
-Set-PSReadLineOption -PredictionViewStyle ListView
 
 # Key bindings
 Set-PSReadLineKeyHandler -Chord 'Ctrl+f' -Function AcceptSuggestion
