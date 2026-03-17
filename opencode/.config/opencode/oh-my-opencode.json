@@ -2,53 +2,56 @@
   "$schema": "https://raw.githubusercontent.com/code-yeongyu/oh-my-opencode/master/assets/oh-my-opencode.schema.json",
   "agents": {
     "sisyphus": {
-      "model": "github-copilot/claude-opus-4.5",
+      "model": "github-copilot/claude-opus-4.6",
       "variant": "max"
     },
+    "sisyphus-junior": {
+      "model": "github-copilot/claude-sonnet-4.6"
+    },
     "oracle": {
-      "model": "github-copilot/gpt-5.2",
+      "model": "github-copilot/gpt-5.4",
       "variant": "high"
     },
     "librarian": {
-      "model": "github-copilot/gemini-3-flash"
+      "model": "ollama-cloud/minimax-m2.5"
     },
     "explore": {
       "model": "github-copilot/claude-haiku-4.5"
     },
     "multimodal-looker": {
-      "model": "google/gemini-3-flash"
+      "model": "github-copilot/gemini-3-flash-preview"
     },
     "prometheus": {
-      "model": "github-copilot/claude-opus-4.5",
+      "model": "github-copilot/claude-opus-4.6",
       "variant": "max"
     },
     "metis": {
-      "model": "github-copilot/claude-opus-4.5",
+      "model": "github-copilot/claude-opus-4.6",
       "variant": "max"
     },
     "momus": {
-      "model": "github-copilot/gpt-5.2",
+      "model": "github-copilot/gpt-5.4",
       "variant": "medium"
     },
     "atlas": {
       "model": "github-copilot/claude-sonnet-4.6"
     },
     "hephaestus": {
-      "model": "github-copilot/gpt-5.2-codex",
+      "model": "github-copilot/gpt-5.3-codex",
       "variant": "medium"
     }
   },
   "categories": {
     "visual-engineering": {
-      "model": "google/gemini-3-pro",
+      "model": "github-copilot/gemini-3-pro-preview",
       "variant": "high"
     },
     "ultrabrain": {
-      "model": "github-copilot/gpt-5.2-codex",
+      "model": "github-copilot/gpt-5.3-codex",
       "variant": "xhigh"
     },
     "artistry": {
-      "model": "google/gemini-3-pro",
+      "model": "github-copilot/gemini-3-pro-preview",
       "variant": "max"
     },
     "quick": {
@@ -61,10 +64,10 @@
       "model": "github-copilot/claude-sonnet-4.6"
     },
     "writing": {
-      "model": "github-copilot/gemini-3-flash"
+      "model": "github-copilot/gemini-3-flash-preview"
     },
     "deep": {
-      "model": "github-copilot/gpt-5.2-codex",
+      "model": "github-copilot/gpt-5.3-codex",
       "variant": "medium"
     }
   },
