@@ -1,5 +1,6 @@
 export PATH=~/.local/scripts:$PATH
 export PATH=~/.local/bin:$PATH
+export PATH=~/.bun/bin:$PATH
 
 # Set up fzf key bindings and fuzzy completion
 eval "$(fzf --zsh)"

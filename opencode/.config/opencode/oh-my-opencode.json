@@ -9,7 +9,7 @@
       "model": "github-copilot/claude-sonnet-4.6"
     },
     "oracle": {
-      "model": "github-copilot/gpt-5.4",
+      "model": "github-copilot/gpt-5.2",
       "variant": "high"
     },
     "librarian": {
@@ -19,7 +19,7 @@
       "model": "github-copilot/grok-code-fast-1"
     },
     "multimodal-looker": {
-      "model": "github-copilot/gpt-5.4"
+      "model": "github-copilot/gpt-5.2"
     },
     "prometheus": {
       "model": "github-copilot/claude-opus-4.5",
@@ -30,7 +30,7 @@
       "variant": "max"
     },
     "momus": {
-      "model": "github-copilot/gpt-5.4",
+      "model": "github-copilot/gpt-5.2",
       "variant": "medium"
     },
     "atlas": {
