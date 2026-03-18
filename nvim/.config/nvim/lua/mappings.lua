@@ -57,9 +57,17 @@ map("n", "<leader>gf", function()
   require("telescope").extensions.git_diffs.diff_commits { use_gitsigns = true }
 end, { desc = "telescope commit to diff" })
 
--- VSCode split navigation (replaces vim-tmux-navigator when running inside vscode-neovim)
+-- Markdown
+if not vim.g.vscode then
+  local rendermarkdown = require "render-markdown"
+
+  map("n", "<leader>mt", rendermarkdown.toggle, { desc = "toggle markdown preview in editor" })
+end
+
+-- VSCode split navigation
 if vim.g.vscode then
   local vsc = require "vscode"
+
   map("n", "<C-h>", function()
     vsc.action "workbench.action.navigateLeft"
   end, { desc = "move to left split" })
