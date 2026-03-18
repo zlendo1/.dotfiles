@@ -7,14 +7,6 @@ return {
 
   {
     "neovim/nvim-lspconfig",
-    dependencies = {
-      {
-        "mason-org/mason.nvim",
-        opts = {
-          automatic_installation = true,
-        },
-      },
-    },
     config = function()
       require "configs.lspconfig"
     end,
