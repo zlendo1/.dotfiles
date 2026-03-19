@@ -1,0 +1,115 @@
+#!/bin/bash
+
+set -euo pipefail
+
+PROJECTS_DIR="$HOME/Projects"
+CREATE_PARENT=false
+
+show_help() {
+  cat <<EOF
+pman - Project Manager
+
+Usage: $(basename "$0") <command> [OPTIONS] <argument>
+
+Manage projects in ~/Projects/
+
+Commands:
+  clone <git-url>      Clone a git repository into ~/Projects/
+  init <project-name>  Create an empty project with git init
+
+Options:
+  -p, --parent  Create ~/Projects if it does not exist
+  -h, --help    Show this help message
+
+Examples:
+  $(basename "$0") clone https://github.com/user/repo.git
+  $(basename "$0") init my-new-project
+  $(basename "$0") -p init my-new-project
+EOF
+}
+
+ensure_projects_dir() {
+  if [[ ! -d "$PROJECTS_DIR" ]]; then
+    if [[ "$CREATE_PARENT" == true ]]; then
+      mkdir -p "$PROJECTS_DIR"
+    else
+      echo "Error: $PROJECTS_DIR does not exist."
+      echo "Use -p or --parent to create it."
+      exit 1
+    fi
+  fi
+}
+
+cmd_clone() {
+  local url="${1:-}"
+  if [[ -z "$url" ]]; then
+    echo "Error: clone requires a git URL"
+    echo "Usage: $(basename "$0") clone <git-url>"
+    exit 1
+  fi
+  ensure_projects_dir
+  cd "$PROJECTS_DIR"
+  git clone "$url"
+}
+
+cmd_init() {
+  local name="${1:-}"
+  if [[ -z "$name" ]]; then
+    echo "Error: init requires a project name"
+    echo "Usage: $(basename "$0") init <project-name>"
+    exit 1
+  fi
+  ensure_projects_dir
+  local project_path="$PROJECTS_DIR/$name"
+  if [[ -e "$project_path" ]]; then
+    echo "Error: $project_path already exists."
+    exit 1
+  fi
+  mkdir -p "$project_path"
+  cd "$project_path"
+  git init
+  echo "Initialized empty project: $project_path"
+}
+
+# Parse global options
+while [[ $# -gt 0 ]]; do
+  case "$1" in
+    -h|--help)
+      show_help
+      exit 0
+      ;;
+    -p|--parent)
+      CREATE_PARENT=true
+      shift
+      ;;
+    -*)
+      echo "Unknown option: $1"
+      show_help
+      exit 1
+      ;;
+    *)
+      break
+      ;;
+  esac
+done
+
+COMMAND="${1:-}"
+shift || true
+
+case "$COMMAND" in
+  clone)
+    cmd_clone "$@"
+    ;;
+  init)
+    cmd_init "$@"
+    ;;
+  "")
+    show_help
+    exit 1
+    ;;
+  *)
+    echo "Unknown command: $COMMAND"
+    show_help
+    exit 1
+    ;;
+esac
