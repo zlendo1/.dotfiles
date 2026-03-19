@@ -1,115 +1,250 @@
-#!/bin/bash
+#!/usr/bin/env bash
+#
+# pman - Project Manager
+# Manage projects in a centralized directory.
+#
 
 set -euo pipefail
 
-PROJECTS_DIR="$HOME/Projects"
-CREATE_PARENT=false
+DEFAULT_PROJECTS_DIR="$HOME/Projects"
+CONFIG_FILE="$HOME/.config/pman/config.ini"
 
-show_help() {
-  cat <<EOF
+# Get the projects directory from config or default
+get_projects_dir() {
+    if [[ -f "$CONFIG_FILE" ]]; then
+        local dir
+        dir=$(grep -E '^\s*projects_dir\s*=' "$CONFIG_FILE" 2>/dev/null | head -1 | cut -d'=' -f2 | xargs)
+        if [[ -n "$dir" ]]; then
+            # Expand ~ to $HOME
+            echo "${dir/#\~/$HOME}"
+            return
+        fi
+    fi
+    echo "$DEFAULT_PROJECTS_DIR"
+}
+
+# Ensure the projects directory exists
+ensure_projects_dir() {
+    local projects_dir="$1"
+    local create_parent="$2"
+
+    if [[ ! -d "$projects_dir" ]]; then
+        if [[ "$create_parent" == "true" ]]; then
+            mkdir -p "$projects_dir"
+        else
+            echo "Error: $projects_dir does not exist." >&2
+            echo "Use -p or --parent to create it." >&2
+            exit 1
+        fi
+    fi
+}
+
+# Clone a git repository into the projects directory
+cmd_clone() {
+    local projects_dir="$1"
+    local create_parent="$2"
+    local url="${3:-}"
+
+    if [[ -z "$url" ]]; then
+        echo "Error: clone requires a git URL" >&2
+        echo "Usage: pman clone <git-url>" >&2
+        exit 1
+    fi
+
+    ensure_projects_dir "$projects_dir" "$create_parent"
+    cd "$projects_dir" && git clone "$url"
+}
+
+# Create an empty project with git init
+cmd_init() {
+    local projects_dir="$1"
+    local create_parent="$2"
+    local name="${3:-}"
+
+    if [[ -z "$name" ]]; then
+        echo "Error: init requires a project name" >&2
+        echo "Usage: pman init <project-name>" >&2
+        exit 1
+    fi
+
+    ensure_projects_dir "$projects_dir" "$create_parent"
+    local project_path="$projects_dir/$name"
+
+    if [[ -e "$project_path" ]]; then
+        echo "Error: $project_path already exists." >&2
+        exit 1
+    fi
+
+    mkdir -p "$project_path"
+    git -C "$project_path" init
+    echo "Initialized empty project: $project_path"
+}
+
+# Output the path to a project directory (for shell wrapper)
+cmd_cd() {
+    local projects_dir="$1"
+    local name="${3:-}"
+
+    if [[ -z "$name" ]]; then
+        echo "Error: cd requires a project name" >&2
+        echo "Usage: pman cd <project-name>" >&2
+        exit 1
+    fi
+
+    local project_path="$projects_dir/$name"
+
+    if [[ ! -d "$project_path" ]]; then
+        echo "Error: Project '$name' does not exist in $projects_dir" >&2
+        exit 1
+    fi
+
+    # Output the path for the shell wrapper to cd into
+    echo "$project_path"
+}
+
+# Remove a project directory
+cmd_rm() {
+    local projects_dir="$1"
+    local name="${3:-}"
+
+    if [[ -z "$name" ]]; then
+        echo "Error: rm requires a project name" >&2
+        echo "Usage: pman rm <project-name>" >&2
+        exit 1
+    fi
+
+    local project_path="$projects_dir/$name"
+
+    if [[ ! -e "$project_path" ]]; then
+        echo "Error: Project '$name' does not exist in $projects_dir" >&2
+        exit 1
+    fi
+
+    echo "About to remove: $project_path"
+    read -rp "Are you sure? [y/N] " response
+    response="${response,,}"  # lowercase
+
+    if [[ "$response" == "y" ]]; then
+        rm -rf "$project_path"
+        echo "Removed: $project_path"
+    else
+        echo "Cancelled."
+    fi
+}
+
+# List all projects
+cmd_ls() {
+    local projects_dir="$1"
+
+    if [[ -d "$projects_dir" ]]; then
+        for item in "$projects_dir"/*; do
+            if [[ -d "$item" ]]; then
+                basename "$item"
+            fi
+        done | sort
+    fi
+}
+
+# Print usage/help
+usage() {
+    local projects_dir
+    projects_dir=$(get_projects_dir)
+
+    cat <<EOF
 pman - Project Manager
 
-Usage: $(basename "$0") <command> [OPTIONS] <argument>
-
-Manage projects in ~/Projects/
-
-Commands:
-  clone <git-url>      Clone a git repository into ~/Projects/
-  init <project-name>  Create an empty project with git init
+Usage: pman [OPTIONS] COMMAND [ARGS]
 
 Options:
-  -p, --parent  Create ~/Projects if it does not exist
-  -h, --help    Show this help message
+  -p, --parent    Create projects directory if it does not exist
+  -h, --help      Show this help message
+
+Commands:
+  clone <url>     Clone a git repository
+  init <name>     Create an empty project with git init
+  cd <name>       Navigate to a project directory
+  rm <name>       Remove a project directory
+  ls, list        List all projects
+
+Manage projects in $projects_dir
+
+Configuration:
+  ~/.config/pman/config.ini    INI file to override default ~/Projects
+
+  Example config.ini:
+    [pman]
+    projects_dir = ~/Projects
 
 Examples:
-  $(basename "$0") clone https://github.com/user/repo.git
-  $(basename "$0") init my-new-project
-  $(basename "$0") -p init my-new-project
+  pman clone https://github.com/user/repo.git
+  pman init my-new-project
+  pman cd my-project
+  pman rm old-project
+  pman ls
 EOF
 }
 
-ensure_projects_dir() {
-  if [[ ! -d "$PROJECTS_DIR" ]]; then
-    if [[ "$CREATE_PARENT" == true ]]; then
-      mkdir -p "$PROJECTS_DIR"
-    else
-      echo "Error: $PROJECTS_DIR does not exist."
-      echo "Use -p or --parent to create it."
-      exit 1
+main() {
+    local create_parent="false"
+    local command=""
+    local args=()
+
+    # Parse options
+    while [[ $# -gt 0 ]]; do
+        case "$1" in
+            -p|--parent)
+                create_parent="true"
+                shift
+                ;;
+            -h|--help)
+                usage
+                exit 0
+                ;;
+            -*)
+                echo "Unknown option: $1" >&2
+                exit 1
+                ;;
+            *)
+                if [[ -z "$command" ]]; then
+                    command="$1"
+                else
+                    args+=("$1")
+                fi
+                shift
+                ;;
+        esac
+    done
+
+    if [[ -z "$command" ]]; then
+        usage
+        exit 1
     fi
-  fi
+
+    local projects_dir
+    projects_dir=$(get_projects_dir)
+
+    case "$command" in
+        clone)
+            cmd_clone "$projects_dir" "$create_parent" "${args[0]:-}"
+            ;;
+        init)
+            cmd_init "$projects_dir" "$create_parent" "${args[0]:-}"
+            ;;
+        cd)
+            cmd_cd "$projects_dir" "$create_parent" "${args[0]:-}"
+            ;;
+        rm)
+            cmd_rm "$projects_dir" "$create_parent" "${args[0]:-}"
+            ;;
+        ls|list)
+            cmd_ls "$projects_dir"
+            ;;
+        *)
+            echo "Unknown command: $command" >&2
+            usage
+            exit 1
+            ;;
+    esac
 }
 
-cmd_clone() {
-  local url="${1:-}"
-  if [[ -z "$url" ]]; then
-    echo "Error: clone requires a git URL"
-    echo "Usage: $(basename "$0") clone <git-url>"
-    exit 1
-  fi
-  ensure_projects_dir
-  cd "$PROJECTS_DIR"
-  git clone "$url"
-}
-
-cmd_init() {
-  local name="${1:-}"
-  if [[ -z "$name" ]]; then
-    echo "Error: init requires a project name"
-    echo "Usage: $(basename "$0") init <project-name>"
-    exit 1
-  fi
-  ensure_projects_dir
-  local project_path="$PROJECTS_DIR/$name"
-  if [[ -e "$project_path" ]]; then
-    echo "Error: $project_path already exists."
-    exit 1
-  fi
-  mkdir -p "$project_path"
-  cd "$project_path"
-  git init
-  echo "Initialized empty project: $project_path"
-}
-
-# Parse global options
-while [[ $# -gt 0 ]]; do
-  case "$1" in
-    -h|--help)
-      show_help
-      exit 0
-      ;;
-    -p|--parent)
-      CREATE_PARENT=true
-      shift
-      ;;
-    -*)
-      echo "Unknown option: $1"
-      show_help
-      exit 1
-      ;;
-    *)
-      break
-      ;;
-  esac
-done
-
-COMMAND="${1:-}"
-shift || true
-
-case "$COMMAND" in
-  clone)
-    cmd_clone "$@"
-    ;;
-  init)
-    cmd_init "$@"
-    ;;
-  "")
-    show_help
-    exit 1
-    ;;
-  *)
-    echo "Unknown command: $COMMAND"
-    show_help
-    exit 1
-    ;;
-esac
+main "$@"
