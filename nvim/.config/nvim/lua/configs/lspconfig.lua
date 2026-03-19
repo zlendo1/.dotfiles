@@ -18,6 +18,7 @@ local servers = {
   "lua_ls",
   "basedpyright",
   "rust_analyzer",
+  "neocmake",
 }
 
 vim.lsp.enable(servers)
