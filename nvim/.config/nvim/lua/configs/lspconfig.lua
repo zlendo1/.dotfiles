@@ -15,6 +15,7 @@ local servers = {
   "openscad_lsp",
   "basedpyright",
   "rust_analyzer",
+  "neocmake",
 }
 
 vim.lsp.enable(servers)

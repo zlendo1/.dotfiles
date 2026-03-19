@@ -46,6 +46,7 @@ return {
         "yaml",
         "pug",
         "java",
+        "cmake",
       },
     },
   },
