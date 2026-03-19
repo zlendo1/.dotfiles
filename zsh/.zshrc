@@ -17,7 +17,6 @@ alias vim='nvim'
 alias lg='lazygit'
 alias ldo='lazydocker'
 alias oc='opencode --port 10000'
-alias ctp='git-clone-to-projects'
 alias sudoedit='EDITOR=nvim sudoedit'
 alias snvim='EDITOR=nvim sudoedit'
 
