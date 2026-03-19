@@ -60,6 +60,7 @@ return {
       return not vim.g.vscode
     end,
     dependencies = {
+      { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
       { "2kabhishek/nerdy.nvim" },
       { "ProfessorMinius/telescope-git-diff-gitsigns.nvim" },
     },
