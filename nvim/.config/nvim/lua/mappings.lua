@@ -41,7 +41,7 @@ map("v", "<leader>gs", function()
 end, { desc = "git stage hunk" })
 map("v", "<leader>gr", function()
   gitsigns.reset_hunk { vim.fn.line ".", vim.fn.line "v" }
-end, { desc = "git stage hunk" })
+end, { desc = "git reset hunk" })
 map("n", "<leader>gS", gitsigns.stage_buffer, { desc = "git stage buffer" })
 map("n", "<leader>gu", gitsigns.undo_stage_hunk, { desc = "git undo stage buffer" })
 map("n", "<leader>gR", gitsigns.reset_buffer, { desc = "git reset buffer" })
