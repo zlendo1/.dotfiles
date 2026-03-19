@@ -96,6 +96,9 @@ ZVM_KEYTIMEOUT=0.2
 autoload -U +X bashcompinit && bashcompinit
 autoload -U +X compinit && compinit
 
+# pman - Project Manager shell integration (must be after final compinit)
+eval "$(pman --zsh)"
+
 # Key management
 export GPG_TTY=$(tty)
 if [[ -f ~/.gpg_key_id ]]; then
