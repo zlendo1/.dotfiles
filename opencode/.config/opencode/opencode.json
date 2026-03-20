@@ -250,7 +250,7 @@
     }
   },
   "plugin": [
-    "oh-my-opencode",
+    "oh-my-opencode@latest",
     "opencode-antigravity-auth@1.6.0",
     "@tarquinen/opencode-dcp@latest",
     "opencode-vibeguard",
