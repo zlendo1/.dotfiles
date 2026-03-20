@@ -2,21 +2,16 @@
   "$schema": "https://raw.githubusercontent.com/code-yeongyu/oh-my-opencode/master/assets/oh-my-opencode.schema.json",
   "agents": {
     "sisyphus": {
-      "model": "ollama-cloud/kimi-k2.5",
-      "ultrawork": {
-        "model": "github-copilot/claude-opus-4.5",
-        "variant": "max"
-      }
+      "model": "github-copilot/claude-opus-4.5",
+      "variant": "max"
     },
-    "sisyphus-junior": {
-      "model": "github-copilot/claude-sonnet-4.5"
+    "hephaestus": {
+      "model": "github-copilot/gpt-5.3-codex",
+      "variant": "medium"
     },
     "oracle": {
       "model": "github-copilot/gpt-5.2",
       "variant": "high"
-    },
-    "librarian": {
-      "model": "opencode/minimax-m2.5-free"
     },
     "explore": {
       "model": "github-copilot/grok-code-fast-1"
@@ -39,9 +34,11 @@
     "atlas": {
       "model": "github-copilot/claude-sonnet-4.5"
     },
-    "hephaestus": {
-      "model": "github-copilot/gpt-5.3-codex",
-      "variant": "medium"
+    "sisyphus-junior": {
+      "model": "github-copilot/claude-sonnet-4.5"
+    },
+    "librarian": {
+      "model": "opencode/minimax-m2.5-free"
     }
   },
   "categories": {
