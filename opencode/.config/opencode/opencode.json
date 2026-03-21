@@ -254,7 +254,8 @@
     "opencode-antigravity-auth@1.6.0",
     "@tarquinen/opencode-dcp@latest",
     "opencode-vibeguard",
-    "@franlol/opencode-md-table-formatter@latest"
+    "@franlol/opencode-md-table-formatter@latest",
+    "file:///usr/lib/opencode/plugins/opencode-claude-auth"
   ],
   "formatter": {
     "ruff": {
