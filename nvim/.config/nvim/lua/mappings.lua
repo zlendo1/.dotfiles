@@ -62,3 +62,10 @@ local rendermarkdown = require "render-markdown"
 
 map("n", "<leader>mt", rendermarkdown.toggle, { desc = "toggle markdown preview in editor" })
 map("n", "<leader>mT", ":MarkdownPreviewToggle<CR>", { desc = "toggle markdown preview in browser" })
+
+-- Vim-Tmux Navigation
+map("n", "<C-h>", ":TmuxNavigateLeft<CR>", { desc = "navigate left" })
+map("n", "<C-j>", ":TmuxNavigateDown<CR>", { desc = "navigate down" })
+map("n", "<C-k>", ":TmuxNavigateUp<CR>", { desc = "navigate up" })
+map("n", "<C-l>", ":TmuxNavigateRight<CR>", { desc = "navigate down" })
+map("n", "<C-\\>", ":TmuxNavigatePrevious<CR>", { desc = "navigate to previous" })
