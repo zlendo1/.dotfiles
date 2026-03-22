@@ -81,5 +81,6 @@
   },
   "browser_automation_engine": {
     "provider": "agent-browser"
-  }
+  },
+  "runtime_fallback": true
 }
