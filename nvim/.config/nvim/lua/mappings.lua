@@ -64,8 +64,22 @@ map("n", "<leader>mt", rendermarkdown.toggle, { desc = "toggle markdown preview 
 map("n", "<leader>mT", ":MarkdownPreviewToggle<CR>", { desc = "toggle markdown preview in browser" })
 
 -- Vim-Tmux Navigation
-map("n", "<C-h>", ":TmuxNavigateLeft<CR>", { desc = "navigate left" })
-map("n", "<C-j>", ":TmuxNavigateDown<CR>", { desc = "navigate down" })
-map("n", "<C-k>", ":TmuxNavigateUp<CR>", { desc = "navigate up" })
-map("n", "<C-l>", ":TmuxNavigateRight<CR>", { desc = "navigate down" })
-map("n", "<C-\\>", ":TmuxNavigatePrevious<CR>", { desc = "navigate to previous" })
+map("n", "<C-h>", function()
+  vim.cmd "TmuxNavigateLeft"
+end, { desc = "navigate left" })
+
+map("n", "<C-j>", function()
+  vim.cmd "TmuxNavigateDown"
+end, { desc = "navigate down" })
+
+map("n", "<C-k>", function()
+  vim.cmd "TmuxNavigateUp"
+end, { desc = "navigate up" })
+
+map("n", "<C-l>", function()
+  vim.cmd "TmuxNavigateRight"
+end, { desc = "navigate down" })
+
+map("n", "<C-\\>", function()
+  vim.cmd "TmuxNavigatePrevious"
+end, { desc = "navigate to previous" })
