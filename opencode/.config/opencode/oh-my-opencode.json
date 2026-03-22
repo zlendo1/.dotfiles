@@ -50,13 +50,6 @@
         "github-copilot/claude-sonnet-4.5"
       ]
     },
-    "sisyphus-junior": {
-      "model": "anthropic/claude-sonnet-4-6",
-      "fallback_models": [
-        "google/antigravity-claude-sonnet-4-6",
-        "github-copilot/claude-sonnet-4.5"
-      ]
-    },
     "librarian": {
       "model": "opencode/minimax-m2.5-free"
     }
