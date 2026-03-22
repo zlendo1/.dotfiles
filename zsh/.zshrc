@@ -133,3 +133,6 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
+# direnv setup
+eval "$(direnv hook zsh)"
+
