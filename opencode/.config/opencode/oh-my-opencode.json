@@ -3,7 +3,10 @@
   "agents": {
     "sisyphus": {
       "model": "anthropic/claude-opus-4-6",
-      "variant": "max"
+      "variant": "max",
+      "fallback_models": [
+        "github-copilot/claude-opus-4.5"
+      ]
     },
     "hephaestus": {
       "model": "github-copilot/gpt-5.3-codex",
@@ -21,21 +24,36 @@
     },
     "prometheus": {
       "model": "anthropic/claude-opus-4-6",
-      "variant": "max"
+      "variant": "max",
+      "fallback_models": [
+        "github-copilot/claude-opus-4.5"
+      ]
     },
     "metis": {
       "model": "anthropic/claude-opus-4-6",
-      "variant": "max"
+      "variant": "max",
+      "fallback_models": [
+        "github-copilot/claude-opus-4.5"
+      ]
     },
     "momus": {
       "model": "anthropic/claude-opus-4-6",
-      "variant": "max"
+      "variant": "max",
+      "fallback_models": [
+        "github-copilot/claude-opus-4.5"
+      ]
     },
     "atlas": {
-      "model": "anthropic/claude-sonnet-4-6"
+      "model": "anthropic/claude-sonnet-4-6",
+      "fallback_models": [
+        "github-copilot/claude-sonnet-4.5"
+      ]
     },
     "sisyphus-junior": {
-      "model": "anthropic/claude-sonnet-4-6"
+      "model": "anthropic/claude-sonnet-4-6",
+      "fallback_models": [
+        "github-copilot/claude-sonnet-4.5"
+      ]
     },
     "librarian": {
       "model": "opencode/minimax-m2.5-free"
@@ -58,11 +76,17 @@
       "model": "anthropic/claude-haiku-4-5"
     },
     "unspecified-low": {
-      "model": "anthropic/claude-sonnet-4-6"
+      "model": "anthropic/claude-sonnet-4-6",
+      "fallback_models": [
+        "github-copilot/claude-sonnet-4.5"
+      ]
     },
     "unspecified-high": {
       "model": "anthropic/claude-opus-4-6",
-      "variant": "max"
+      "variant": "max",
+      "fallback_models": [
+        "github-copilot/claude-opus-4.5"
+      ]
     },
     "writing": {
       "model": "google/antigravity-gemini-3-flash"
