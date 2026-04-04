@@ -1,5 +1,5 @@
 {
-  "$schema": "https://raw.githubusercontent.com/code-yeongyu/oh-my-opencode/master/assets/oh-my-opencode.schema.json",
+  "$schema": "https://raw.githubusercontent.com/code-yeongyu/oh-my-openagent/dev/assets/oh-my-opencode.schema.json",
   "agents": {
     "sisyphus": {
       "model": "anthropic/claude-opus-4-6",
@@ -94,7 +94,7 @@
   },
   "tmux": {
     "enabled": true,
-    "layout": "main-vertical",
+    "layout": "tiled",
     "main_pane_size": 60,
     "main_pane_min_width": 120,
     "agent_pane_min_width": 40
@@ -104,5 +104,9 @@
   },
   "runtime_fallback": {
     "enabled": true
+  },
+  "git_master": {
+    "commit_footer": true,
+    "include_co_authored_by": false
   }
 }
