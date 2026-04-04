@@ -255,7 +255,7 @@
     "@tarquinen/opencode-dcp@latest",
     "opencode-vibeguard",
     "@franlol/opencode-md-table-formatter@latest",
-    "file:///usr/lib/opencode/plugins/opencode-claude-auth"
+    "opencode-claude-auth"
   ],
   "formatter": {
     "ruff": {
