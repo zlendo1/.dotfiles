@@ -237,12 +237,12 @@
     }
   },
   "plugin": [
-    "oh-my-openagent@latest",
     "opencode-antigravity-auth@1.6.0",
     "@tarquinen/opencode-dcp@latest",
     "opencode-vibeguard",
     "@franlol/opencode-md-table-formatter@latest",
-    "opencode-claude-auth"
+    "opencode-claude-auth",
+    "oh-my-openagent@latest"
   ],
   "formatter": {
     "ruff": {
