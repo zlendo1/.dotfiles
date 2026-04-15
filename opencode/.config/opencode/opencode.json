@@ -238,7 +238,6 @@
   },
   "plugin": [
     "opencode-antigravity-auth@1.6.0",
-    "@tarquinen/opencode-dcp@latest",
     "opencode-vibeguard",
     "@franlol/opencode-md-table-formatter@latest",
     "opencode-claude-auth",
