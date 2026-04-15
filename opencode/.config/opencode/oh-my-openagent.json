@@ -3,7 +3,7 @@
   "agents": {
     "sisyphus": {
       "model": "github-copilot/claude-opus-4.6",
-      "variant": "max",
+      "variant": "high",
       "fallback_models": [
         {
           "model": "opencode-go/kimi-k2.5"
@@ -28,7 +28,7 @@
         },
         {
           "model": "github-copilot/claude-opus-4.6",
-          "variant": "max"
+          "variant": "high"
         },
         {
           "model": "opencode-go/glm-5"
@@ -48,6 +48,7 @@
     },
     "multimodal-looker": {
       "model": "opencode-go/kimi-k2.5",
+      "temperature": 1,
       "fallback_models": [
         {
           "model": "github-copilot/gpt-5-nano"
@@ -56,7 +57,7 @@
     },
     "prometheus": {
       "model": "github-copilot/claude-opus-4.6",
-      "variant": "max",
+      "variant": "high",
       "fallback_models": [
         {
           "model": "github-copilot/gpt-5.4",
@@ -72,7 +73,7 @@
     },
     "metis": {
       "model": "github-copilot/claude-opus-4.6",
-      "variant": "max",
+      "variant": "high",
       "fallback_models": [
         {
           "model": "github-copilot/gpt-5.4",
@@ -89,7 +90,7 @@
       "fallback_models": [
         {
           "model": "github-copilot/claude-opus-4.6",
-          "variant": "max"
+          "variant": "high"
         },
         {
           "model": "github-copilot/gemini-3.1-pro-preview",
@@ -138,7 +139,7 @@
       "fallback_models": [
         {
           "model": "github-copilot/claude-opus-4.6",
-          "variant": "max"
+          "variant": "high"
         },
         {
           "model": "opencode-go/glm-5"
@@ -151,7 +152,7 @@
       "fallback_models": [
         {
           "model": "github-copilot/claude-opus-4.6",
-          "variant": "max"
+          "variant": "high"
         },
         {
           "model": "opencode-go/glm-5"
@@ -164,7 +165,7 @@
       "fallback_models": [
         {
           "model": "github-copilot/claude-opus-4.6",
-          "variant": "max"
+          "variant": "high"
         },
         {
           "model": "github-copilot/gemini-3.1-pro-preview",
@@ -178,7 +179,7 @@
       "fallback_models": [
         {
           "model": "github-copilot/claude-opus-4.6",
-          "variant": "max"
+          "variant": "high"
         },
         {
           "model": "github-copilot/gpt-5.4"
@@ -214,7 +215,8 @@
       ]
     },
     "unspecified-high": {
-      "model": "github-copilot/claude-sonnet-4.6",
+      "model": "github-copilot/claude-opus-4.6",
+      "variant": "high",
       "fallback_models": [
         {
           "model": "opencode-go/kimi-k2.5"
