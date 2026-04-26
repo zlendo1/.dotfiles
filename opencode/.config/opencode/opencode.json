@@ -240,9 +240,14 @@
     "opencode-antigravity-auth@1.6.0",
     "opencode-vibeguard",
     "@franlol/opencode-md-table-formatter@latest",
-    "opencode-claude-auth",
+    "opencode-claude-auth@latest",
     "oh-my-openagent@latest"
   ],
+  "agent": {
+    "build": {
+      "enable1mContext": false
+    }
+  },
   "formatter": {
     "ruff": {
       "disabled": false
