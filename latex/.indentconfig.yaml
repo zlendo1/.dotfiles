@@ -5,4 +5,4 @@
 # the variables that you specify
 
 paths:
-  - /home/zijad/.config/latexindent/config.yaml
+  - ~/.config/latexindent/config.yaml
