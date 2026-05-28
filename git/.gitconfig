@@ -37,3 +37,5 @@
   tool = nvimdiff
 [mergetool]
   prompt = true
+[credential]
+	helper = store
