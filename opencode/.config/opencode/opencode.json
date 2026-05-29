@@ -246,7 +246,7 @@
   ],
   "agent": {
     "build": {
-      "enable1mContext": false
+      "enable1mContext": true
     }
   },
   "formatter": {
